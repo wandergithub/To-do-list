@@ -116,7 +116,17 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\r\nconsole.log(\"hello\");\n\n//# sourceURL=webpack://to-do-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _modules_tasksList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/tasksList */ \"./src/modules/tasksList.js\");\n\r\n\r\n\r\nalert(_modules_tasksList__WEBPACK_IMPORTED_MODULE_1__[\"default\"][0].description);\n\n//# sourceURL=webpack://to-do-list/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modules/tasksList.js":
+/*!**********************************!*\
+  !*** ./src/modules/tasksList.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (tasksList = [\r\n  {\r\n    description:\"string description\",\r\n    completed:false,\r\n    index:0\r\n  },\r\n  {\r\n    description:\"string description 1\",\r\n    completed:false,\r\n    index:1\r\n  },\r\n  {\r\n    description:\"string description 2\",\r\n    completed:false,\r\n    index:2\r\n  }\r\n]);\n\n//# sourceURL=webpack://to-do-list/./src/modules/tasksList.js?");
 
 /***/ })
 
