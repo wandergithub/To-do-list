@@ -1,0 +1,81 @@
+h1 {
+  font-size: medium;
+  font-weight: 500;
+  order: 0;
+}
+
+body {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-top: 60px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 3px 7px 0 #ababab;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: 0.1em;
+  width: 30em;
+  align-self: center;
+  justify-self: center;
+}
+
+li {
+  order: 1;
+  border-top: 1px solid #ccc;
+  padding: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  gap: 5px;
+  align-items: baseline;
+}
+
+li span {
+  font-style: italic;
+  color: #ababab;
+}
+
+li:first-child {
+  border-top: 0;
+}
+
+#button-container {
+  background-color: #f1eeee;
+  display: flex;
+  justify-content: center;
+  order: 10;
+}
+
+#button-container a {
+  text-decoration: none;
+  color: #6b6b6b;
+}
+
+.icon {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon img {
+  height: 1em;
+}
+
+#title img {
+  width: 1em;
+  height: 1em;
+  justify-self: center;
+  align-self: center;
+}
+
+.dotIcon {
+  height: 1em;
+  width: 1em;
+  align-self: center;
+}
