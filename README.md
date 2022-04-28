@@ -16,10 +16,10 @@
 [Live Demo Link](https://livedemo.com)
 
 
-### Usage
-1. Clone repo
-2. Install all dependencies
-3. use <npm run start> to run the local server.
+### Setting the project: Steps.
+1. Clone github repo into your local machine
+2. Install all dependencies using npm install
+3. use <npm run start> to run the local server and see the project.
 
 
 ## Authors
