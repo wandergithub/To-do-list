@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# To do list
 
 > This project is a simple to do list of tasks. Built using webpack.
 
