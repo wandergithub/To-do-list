@@ -3,7 +3,9 @@ import './assets/images/refresh.png';
 import './assets/images/arrow.png';
 import './assets/images/dot.png';
 import tasksList from './modules/tasksList.js';
-import ul from './modules/htmlElements.js';
-import generateItems from './modules/generateItmes.js';
-
-generateItems(tasksList, ul);
+import {ul} from './modules/htmlElements.js';
+import {generateItems} from './modules/generateItems.js';
+import userActionHandler from './modules/userActions.js';
+import { updateAppStorage, updateLocalStorage, initStorage } from './modules/localStorage';
+userActionHandler();
+window.addEventListener('load', initStorage);
