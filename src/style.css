@@ -75,6 +75,7 @@ li:first-child {
   height: 1em;
   width: 1em;
   align-self: center;
+  float: right;
 }
 
 #add-input {
@@ -85,4 +86,17 @@ li:first-child {
 
 #add-input:focus {
   outline: none;
+}
+
+.taskDescription {
+  border: none;
+  color: black;
+}
+
+.taskDescription:focus {
+  outline: none;
+}
+
+.editing-background {
+  background-color: rgb(255, 255, 184);
 }
