@@ -27,14 +27,16 @@ function editingTask(event) {
   });
 }
 function finishEditing(event) {
-  const selectedElementClass = `.${event.path[2].classList[0]}`;
-  const elementLi = document.querySelector(selectedElementClass);
-  const elementInput = document.querySelector(`.${event.path[2].classList[0]} > div > input + input`);
-  elementLi.classList.remove('editing-background');
-  elementInput.classList.remove('editing-background');
-  elementInput.addEventListener('input', modifyTask(elementInput.value, selectedElementClass));
-  const icon = document.querySelector(`.${event.path[2].classList[0]} > img`);
-  icon.setAttribute('src', './assets/images/dot.png');
+  if (event.keyCode === 13) {
+    const selectedElementClass = `.${event.path[2].classList[0]}`;
+    const elementLi = document.querySelector(selectedElementClass);
+    const elementInput = document.querySelector(`.${event.path[2].classList[0]} > div > input + input`);
+    elementLi.classList.remove('editing-background');
+    elementInput.classList.remove('editing-background');
+    elementInput.addEventListener('input', modifyTask(elementInput.value, selectedElementClass));
+    const icon = document.querySelector(`.${event.path[2].classList[0]} > img`);
+    icon.setAttribute('src', './assets/images/dot.png');
+  }
 }
 
 export { finishEditing, editingTask };

@@ -22,8 +22,8 @@ function generate(item, container) {
   dotIcon.classList.add('dotIcon');
   li.appendChild(dotIcon);
   li.classList.add(`index${element.index}`);
-  taskDescription.addEventListener('focus', editingTask);
-  taskDescription.addEventListener('blur', finishEditing);
+  li.addEventListener('click', editingTask);
+  li.addEventListener('keypress', finishEditing);
 }
 
 const generateItems = (tasksList, ul) => {
