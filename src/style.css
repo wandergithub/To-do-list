@@ -37,8 +37,6 @@ li {
   align-items: baseline;
 }
 
-
-
 li:first-child {
   border-top: 0;
 }

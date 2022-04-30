@@ -1,4 +1,4 @@
-import {editingTask, finishEditing } from "./editingTask.js";
+import { editingTask, finishEditing } from './editingTask.js';
 
 function generate(item, container) {
   const div = document.createElement('div');
@@ -26,4 +26,12 @@ function generate(item, container) {
   taskDescription.addEventListener('blur', finishEditing);
 }
 
-export default generate;
+const generateItems = (tasksList, ul) => {
+  for (let j = 0; j < tasksList.length; j += 1) {
+    if (tasksList[j].index >= document.getElementsByClassName('taskDescription').length) {
+      generate(tasksList[j], ul);
+    }
+  }
+};
+
+export { generateItems, generate };
