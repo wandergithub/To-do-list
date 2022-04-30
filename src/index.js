@@ -1,3 +1,4 @@
+/* eslint-disable */
 import './style.css';
 import './assets/images/refresh.png';
 import './assets/images/arrow.png';
