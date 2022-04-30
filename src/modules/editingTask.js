@@ -14,18 +14,18 @@ function editingTask(event) {
     let newlist = [];
     list.forEach(element => {
       // console.log(event.path[2].classList[0].slice(5,));
-      if (element.index != event.path[2].classList[0].slice(5,)) {
+      if (element.index !== Number(event.path[2].classList[0].slice(5,))) {
         newlist.push(element);
       }
     });
-    localStorage.setItem('Tasks', JSON.stringify(newlist));
-    while (tasksList.length > 0) {
-      tasksList.pop();
-    }
-    newlist.forEach(element => {
-      tasksList.push(element);
-    });
+    let newindex = 0;
     elementLi.remove();
+    newlist.forEach(element => {
+      element.index = newindex;
+      newindex++;
+    });
+    localStorage.setItem('Tasks', JSON.stringify(newlist));
+    
   });
 }
 function finishEditing(event) {

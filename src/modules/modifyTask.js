@@ -6,12 +6,12 @@ export default function modifyTask(newdescription, index, completed=false) {
   // console.log("index "+ index);
   // console.log("descr "+ newdescription);
   // console.log(completed);
-  tasksList.forEach(element => {
+  let list = JSON.parse(localStorage.getItem('Tasks'));
+  list.forEach(element => {
     if (String(element.index) === index) {
       element.description = newdescription;
       element.index = toNumber(index);
     }
   });
-  console.log(tasksList);
-  localStorage.setItem('Tasks', JSON.stringify(tasksList));
+  localStorage.setItem('Tasks', JSON.stringify(list));
 }

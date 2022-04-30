@@ -2,8 +2,8 @@ import generateItems from "./generateItems.js";
 import tasksList from "./tasksList.js";
 import { ul } from './htmlElements.js';
 
-function updateLocalStorage() {
-  localStorage.setItem('Tasks', JSON.stringify(tasksList));
+function updateLocalStorage(tL=tasksList) {
+  localStorage.setItem('Tasks', JSON.stringify(tL));
 }
 
 function updateAppStorage() {
