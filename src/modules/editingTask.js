@@ -1,7 +1,7 @@
 import modifyTask from './modifyTask.js';
 
 function finishEditing(event) {
-  const selectedElementClass = "."+ event.currentTarget.parentNode.parentNode.classList[0];
+  const selectedElementClass = `.${event.currentTarget.parentNode.parentNode.classList[0]}`;
   // `.${event.path[2].classList[0]}`
   // console.log(selectedElementClass);
   // console.log(event.currentTarget.parentNode.parentNode.classList[0]);
