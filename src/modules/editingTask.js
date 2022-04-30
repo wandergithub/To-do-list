@@ -15,6 +15,9 @@ function finishEditing(event) {
 }
 
 function editingTask(event) {
+  document.querySelectorAll('.editing-background').forEach(element => {
+    element.classList.remove('editing-background');
+  });
   // console.log(event.currentTarget.classList[0]);
   const elementLi = event.currentTarget;
   const elementInput = event.currentTarget.firstElementChild.lastElementChild;
