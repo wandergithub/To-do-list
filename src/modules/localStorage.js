@@ -14,7 +14,7 @@ function updateAppStorage() {
 }
 
 function initStorage() {
-  if (localStorage.length === 0) {
+  if (localStorage.getItem('Tasks') === null) {
     localStorage.setItem('Tasks', JSON.stringify(tasksList));
     return;
   }// Print/load local storage.
