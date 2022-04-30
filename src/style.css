@@ -37,11 +37,6 @@ li {
   align-items: baseline;
 }
 
-li span {
-  font-style: italic;
-  color: #ababab;
-}
-
 li:first-child {
   border-top: 0;
 }
@@ -78,4 +73,28 @@ li:first-child {
   height: 1em;
   width: 1em;
   align-self: center;
+  float: right;
+}
+
+#add-input {
+  font-style: italic;
+  color: #9f9f9f;
+  border: none;
+}
+
+#add-input:focus {
+  outline: none;
+}
+
+.taskDescription {
+  border: none;
+  color: black;
+}
+
+.taskDescription:focus {
+  outline: none;
+}
+
+.editing-background {
+  background-color: rgb(255, 255, 184);
 }

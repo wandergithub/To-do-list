@@ -1,2 +1,3 @@
 const ul = document.querySelector('body ul');
-export default ul;
+const input = document.getElementById('add-input');
+export { ul, input };

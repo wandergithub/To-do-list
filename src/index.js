@@ -1,9 +1,11 @@
+/* eslint-disable */
 import './style.css';
 import './assets/images/refresh.png';
 import './assets/images/arrow.png';
 import './assets/images/dot.png';
-import tasksList from './modules/tasksList.js';
-import ul from './modules/htmlElements.js';
-import generateItems from './modules/generateItmes.js';
+import './assets/images/trash-can.png';
+import userActionHandler from './modules/userActions.js';
+import { initStorage } from './modules/localStorage.js';
 
-generateItems(tasksList, ul);
+userActionHandler();
+window.addEventListener('load', initStorage);
