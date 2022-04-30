@@ -1,19 +1,35 @@
 import modifyTask from './modifyTask.js';
 
-function editingTask(event) {
-  const selectedElementClass = `.${event.path[2].classList[0]}`;
+function finishEditing(event) {
+  const selectedElementClass = "."+ event.currentTarget.parentNode.parentNode.classList[0];
+  // `.${event.path[2].classList[0]}`
+  // console.log(selectedElementClass);
+  // console.log(event.currentTarget.parentNode.parentNode.classList[0]);
   const elementLi = document.querySelector(selectedElementClass);
-  const elementInput = document.querySelector(`.${event.path[2].classList[0]} > div > input + input`);
+  const elementInput = event.currentTarget;
+  elementLi.classList.remove('editing-background');
+  elementInput.classList.remove('editing-background');
+  elementInput.addEventListener('input', modifyTask(elementInput.value, selectedElementClass));
+  const icon = document.querySelector(`${selectedElementClass} > img`);
+  icon.setAttribute('src', './assets/images/dot.png');
+}
+
+function editingTask(event) {
+  // console.log(event.currentTarget.classList[0]);
+  const elementLi = event.currentTarget;
+  const elementInput = event.currentTarget.firstElementChild.lastElementChild;
+  elementInput.addEventListener('blur', finishEditing);
   elementLi.classList.add('editing-background');
   elementInput.classList.add('editing-background');
   const icon = document.querySelector('.editing-background > img');
   icon.setAttribute('src', './assets/images/trash-can.png');
+  const p = event.currentTarget;
   icon.addEventListener('click', () => {
     const list = JSON.parse(localStorage.getItem('Tasks'));
     const newlist = [];
     list.forEach((element) => {
       // console.log(event.path[2].classList[0].slice(5,));
-      if (element.index !== Number(event.path[2].classList[0].slice(5))) {
+      if (element.index !== Number(p.classList[0].slice(5))) {
         newlist.push(element);
       }
     });
@@ -25,18 +41,6 @@ function editingTask(event) {
     });
     localStorage.setItem('Tasks', JSON.stringify(newlist));
   });
-}
-function finishEditing(event) {
-  if (event.keyCode === 13) {
-    const selectedElementClass = `.${event.path[2].classList[0]}`;
-    const elementLi = document.querySelector(selectedElementClass);
-    const elementInput = document.querySelector(`.${event.path[2].classList[0]} > div > input + input`);
-    elementLi.classList.remove('editing-background');
-    elementInput.classList.remove('editing-background');
-    elementInput.addEventListener('input', modifyTask(elementInput.value, selectedElementClass));
-    const icon = document.querySelector(`.${event.path[2].classList[0]} > img`);
-    icon.setAttribute('src', './assets/images/dot.png');
-  }
 }
 
 export { finishEditing, editingTask };

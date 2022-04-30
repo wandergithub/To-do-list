@@ -1,4 +1,4 @@
-import { editingTask, finishEditing } from './editingTask.js';
+import { editingTask } from './editingTask.js';
 
 function generate(item, container) {
   const div = document.createElement('div');
@@ -23,7 +23,6 @@ function generate(item, container) {
   li.appendChild(dotIcon);
   li.classList.add(`index${element.index}`);
   li.addEventListener('click', editingTask);
-  li.addEventListener('keypress', finishEditing);
 }
 
 const generateItems = (tasksList, ul) => {
