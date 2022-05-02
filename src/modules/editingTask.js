@@ -2,9 +2,6 @@ import modifyTask from './modifyTask.js';
 
 function finishEditing(event) {
   const selectedElementClass = `.${event.currentTarget.parentNode.parentNode.classList[0]}`;
-  // `.${event.path[2].classList[0]}`
-  // console.log(selectedElementClass);
-  // console.log(event.currentTarget.parentNode.parentNode.classList[0]);
   const elementLi = document.querySelector(selectedElementClass);
   const elementInput = event.currentTarget;
   elementLi.classList.remove('editing-background');
@@ -18,7 +15,6 @@ function editingTask(event) {
   document.querySelectorAll('.editing-background').forEach((element) => {
     element.classList.remove('editing-background');
   });
-  // console.log(event.currentTarget.classList[0]);
   const elementLi = event.currentTarget;
   const elementInput = event.currentTarget.firstElementChild.lastElementChild;
   elementInput.addEventListener('blur', finishEditing);
@@ -31,7 +27,6 @@ function editingTask(event) {
     const list = JSON.parse(localStorage.getItem('Tasks'));
     const newlist = [];
     list.forEach((element) => {
-      // console.log(event.path[2].classList[0].slice(5,));
       if (element.index !== Number(p.classList[0].slice(5))) {
         newlist.push(element);
       }
