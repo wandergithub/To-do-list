@@ -4,6 +4,9 @@
 
 > This project is a simple to do list of tasks. Built using webpack.
 
+## App screenshot
+
+![App ScreenShot](/app_screenshot.png?raw=true "To do list")
 
 ## Built With
 
