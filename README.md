@@ -11,14 +11,14 @@
 - Javascript
 - HTML & CSS
 
-## Live Demo (if available)
+## Live Demo 
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://wandergithub.github.io/To-do-list/)
 
 
 ### Setting the project: Steps.
 1. Clone github repo into your local machine
-2. Install all dependencies using npm install
+2. Install all dependencies using npm install 
 3. use <npm run start> to run the local server and see the project.
 
 
