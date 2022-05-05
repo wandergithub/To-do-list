@@ -1,5 +1,18 @@
 import modifyTask from './modifyTask.js';
 
+const removeTask = (event) => {
+  const elementLi = event.currentTarget.parentNode;
+  const list = JSON.parse(localStorage.getItem('Tasks'));
+  const newlist = list.filter((task) => task.index !== Number(elementLi.classList[0].slice(5)));
+  let newindex = 0;
+  elementLi.remove();
+  newlist.forEach((element) => {
+    element.index = newindex;
+    newindex += 1;
+  });
+  localStorage.setItem('Tasks', JSON.stringify(newlist));
+};
+
 function finishEditing(event) {
   const selectedElementClass = `.${event.currentTarget.parentNode.parentNode.classList[0]}`;
   const elementLi = document.querySelector(selectedElementClass);
@@ -22,23 +35,7 @@ function editingTask(event) {
   elementInput.classList.add('editing-background');
   const icon = document.querySelector('.editing-background > img');
   icon.setAttribute('src', './assets/images/trash-can.png');
-  const p = event.currentTarget;
-  icon.addEventListener('click', () => {
-    const list = JSON.parse(localStorage.getItem('Tasks'));
-    const newlist = [];
-    list.forEach((element) => {
-      if (element.index !== Number(p.classList[0].slice(5))) {
-        newlist.push(element);
-      }
-    });
-    let newindex = 0;
-    elementLi.remove();
-    newlist.forEach((element) => {
-      element.index = newindex;
-      newindex += 1;
-    });
-    localStorage.setItem('Tasks', JSON.stringify(newlist));
-  });
+  icon.addEventListener('click', removeTask);
 }
 
-export { finishEditing, editingTask };
+export { finishEditing, editingTask, removeTask };

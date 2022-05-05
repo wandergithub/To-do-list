@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">31.03% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/30</span>
+                <span class='fraction'>9/29</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>2/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">28.57% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/30</span>
+                <span class='fraction'>8/28</span>
             </div>
         
             
@@ -103,32 +103,22 @@
 <a name='L38'></a><a href='#L38'>38</a>
 <a name='L39'></a><a href='#L39'>39</a>
 <a name='L40'></a><a href='#L40'>40</a>
-<a name='L41'></a><a href='#L41'>41</a>
-<a name='L42'></a><a href='#L42'>42</a>
-<a name='L43'></a><a href='#L43'>43</a>
-<a name='L44'></a><a href='#L44'>44</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L41'></a><a href='#L41'>41</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -139,17 +129,34 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import modifyTask from './modifyTask.js';
+&nbsp;
+const removeTask = (event) =&gt; {
+  const elementLi = event.currentTarget.parentNode;
+  const list = JSON.parse(localStorage.getItem('Tasks'));
+  const newlist = list.filter((task) =&gt; task.index !== Number(elementLi.classList[0].slice(5)));
+  let newindex = 0;
+  elementLi.remove();
+  newlist.forEach(<span class="fstat-no" title="function not covered" >(e</span>lement) =&gt; {
+<span class="cstat-no" title="statement not covered" >    element.index = newindex;</span>
+<span class="cstat-no" title="statement not covered" >    newindex += 1;</span>
+  });
+  localStorage.setItem('Tasks', JSON.stringify(newlist));
+};
 &nbsp;
 function <span class="fstat-no" title="function not covered" >finishEditing(</span>event) {
   const selectedElementClass = <span class="cstat-no" title="statement not covered" >`.${event.currentTarget.parentNode.parentNode.classList[0]}`;</span>
@@ -173,33 +180,17 @@ function <span class="fstat-no" title="function not covered" >editingTask(</span
 <span class="cstat-no" title="statement not covered" >  elementInput.classList.add('editing-background');</span>
   const icon = <span class="cstat-no" title="statement not covered" >document.querySelector('.editing-background &gt; img');</span>
 <span class="cstat-no" title="statement not covered" >  icon.setAttribute('src', './assets/images/trash-can.png');</span>
-  const p = <span class="cstat-no" title="statement not covered" >event.currentTarget;</span>
-<span class="cstat-no" title="statement not covered" >  icon.addEventListener('click', <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-    const list = <span class="cstat-no" title="statement not covered" >JSON.parse(localStorage.getItem('Tasks'));</span>
-    const newlist = <span class="cstat-no" title="statement not covered" >[];</span>
-<span class="cstat-no" title="statement not covered" >    list.forEach(<span class="fstat-no" title="function not covered" >(e</span>lement) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      if (element.index !== Number(p.classList[0].slice(5))) {</span>
-<span class="cstat-no" title="statement not covered" >        newlist.push(element);</span>
-      }
-    });
-    let newindex = <span class="cstat-no" title="statement not covered" >0;</span>
-<span class="cstat-no" title="statement not covered" >    elementLi.remove();</span>
-<span class="cstat-no" title="statement not covered" >    newlist.forEach(<span class="fstat-no" title="function not covered" >(e</span>lement) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      element.index = newindex;</span>
-<span class="cstat-no" title="statement not covered" >      newindex += 1;</span>
-    });
-<span class="cstat-no" title="statement not covered" >    localStorage.setItem('Tasks', JSON.stringify(newlist));</span>
-  });
+<span class="cstat-no" title="statement not covered" >  icon.addEventListener('click', removeTask);</span>
 }
 &nbsp;
-export { finishEditing, editingTask };</pre></td></tr></table></pre>
+export { finishEditing, editingTask, removeTask };</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed May 04 2022 20:24:59 GMT-0400 (hora de verano oriental)
+                at Thu May 05 2022 10:05:45 GMT-0400 (hora de verano oriental)
             </div>
         <script src="prettify.js"></script>
         <script>

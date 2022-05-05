@@ -1,4 +1,5 @@
 import addTask from '../src/modules/addTask.js';
+import { removeTask } from '../src/modules/editingTask.js';
 
 const html = `
 <ul>
@@ -23,6 +24,31 @@ describe('Add task test', () => {
     
     // Assert
     expect(resultingTasksList.length).toBeGreaterThan(0);
+  });
+});
+
+describe('Remove task test', () => {
+  test('Remove Task', () => {
+    
+    const event = {
+      currentTarget: {
+        parentNode: {
+          classList: ['index0'],
+          remove () {
+          }
+        },
+      }
+    };
+    const Task = {
+      description: "Task 1",
+      completed: false,
+      index: 0
+    } 
+    localStorage.setItem('Tasks', JSON.stringify([Task]));
+
+    removeTask(event);
+
+    expect(localStorage.length).arrayContaining([]);
   });
 });
 
