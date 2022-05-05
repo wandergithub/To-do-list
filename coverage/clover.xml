@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1651759545370" clover="3.2.0">
-  <project timestamp="1651759545370" name="All files">
+<coverage generated="1651761093896" clover="3.2.0">
+  <project timestamp="1651761093896" name="All files">
     <metrics statements="98" coveredstatements="51" conditionals="15" coveredconditionals="2" methods="19" coveredmethods="7" elements="132" coveredelements="60" complexity="0" loc="98" ncloc="98" packages="1" files="8" classes="8"/>
     <file name="addTask.js" path="C:\Users\wande\OneDrive\Desktop\Work\To-do-list\src\modules\addTask.js">
       <metrics statements="14" coveredstatements="14" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>

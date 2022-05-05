@@ -10,7 +10,7 @@ const html = `
 `
 document.body.innerHTML = html;
 describe('Add task test', () => {
-  test('AddTask function', () => {
+  test('AddTask at local storage', () => {
     // Arange
     const event = {
       keyCode: 13
@@ -28,8 +28,7 @@ describe('Add task test', () => {
 });
 
 describe('Remove task test', () => {
-  test('Remove Task', () => {
-    
+  test('Remove Task at local storage', () => {
     const event = {
       currentTarget: {
         parentNode: {
@@ -45,10 +44,11 @@ describe('Remove task test', () => {
       index: 0
     } 
     localStorage.setItem('Tasks', JSON.stringify([Task]));
-
+    
     removeTask(event);
+    const result = JSON.parse(localStorage.getItem('Tasks'));
 
-    expect(localStorage.length).arrayContaining([]);
+    expect(result.length).toBe(0);
   });
 });
 
