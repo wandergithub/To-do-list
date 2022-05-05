@@ -1,5 +1,6 @@
 import modifyTask from "../src/modules/modifyTask"
 import addTask from "../src/modules/addTask"
+import taskStatus from "../src/modules/taskStatus"
 
 const html = `
 <ul>
@@ -28,5 +29,19 @@ describe('the modify task function', () => {
     const list = JSON.parse(localStorage.getItem('Tasks'))
 
     expect(list[0].description).toBe(newDescription);
+  })
+
+  test('it toggles the task\'s completed status and updates the localStorage', () => {
+    const editableTask = document.body.querySelector('li input[type="checkbox"]');
+
+    let list;
+    editableTask.addEventListener('click', (event) => {
+      taskStatus(event);
+      list = JSON.parse(localStorage.getItem('Tasks'));
+    });
+
+    editableTask.click();
+
+    expect(list[0].completed).toBe(true);
   })
 })
