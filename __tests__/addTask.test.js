@@ -1,5 +1,6 @@
 import addTask from '../src/modules/addTask.js';
 import { removeTask } from '../src/modules/editingTask.js';
+import tasksList from "../src/modules/tasksList.js";
 
 const html = `
 <ul>
@@ -8,23 +9,40 @@ const html = `
     <li id="button-container"><a href="">Clear all completed</a></li>
   </ul>
 `
-document.body.innerHTML = html;
+document.body.innerHTML = html
+
 describe('Add task test', () => {
   test('AddTask at local storage', () => {
+
     // Arange
     const event = {
       keyCode: 13
     };
     const array = [];
     localStorage.setItem('Tasks', JSON.stringify(array));
-    
+
     // Act
     addTask(event);
     const resultingTasksList = JSON.parse(localStorage.getItem('Tasks'));
-    
+
     // Assert
     expect(resultingTasksList.length).toBeGreaterThan(0);
   });
+
+  test('it adds another li html element after adding a new task', () => {
+
+    const { length } = document.body.querySelectorAll('ul > li');
+
+    const event = {
+      keyCode: 13
+    };
+
+    addTask(event);
+    const { length: newLength } = document.body.querySelectorAll('ul > li');
+
+    expect(newLength).toBe(length + 1);
+
+  })
 });
 
 describe('Remove task test', () => {
@@ -33,7 +51,7 @@ describe('Remove task test', () => {
       currentTarget: {
         parentNode: {
           classList: ['index0'],
-          remove () {
+          remove() {
           }
         },
       }
@@ -42,9 +60,9 @@ describe('Remove task test', () => {
       description: "Task 1",
       completed: false,
       index: 0
-    } 
+    }
     localStorage.setItem('Tasks', JSON.stringify([Task]));
-    
+
     removeTask(event);
     const result = JSON.parse(localStorage.getItem('Tasks'));
 
