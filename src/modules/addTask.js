@@ -1,19 +1,27 @@
-import { input, ul } from './htmlElements.js';
 import { updateLocalStorage } from './localStorage.js';
 import { generateItems } from './generateli.js';
 
+const add = (item) => {
+  const list = JSON.parse(localStorage.getItem('Tasks'));
+  list.push(item);
+  updateLocalStorage(list);
+  return list;
+};
+
 const addTask = (e) => {
+  const ul = document.querySelector('body ul');
+  const input = document.getElementById('add-input');
+  let list = JSON.parse(localStorage.getItem('Tasks'));
+
   if (e.keyCode === 13) {
-    const list = JSON.parse(localStorage.getItem('Tasks'));
     const item = {
       description: input.value,
       completed: false,
       index: list.length,
     };
+    list = add(item);
     input.value = '';
-    list.push(item);
     generateItems(list, ul);
-    updateLocalStorage(list);
   }
 };
 export default addTask;
