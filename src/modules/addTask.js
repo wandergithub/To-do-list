@@ -12,7 +12,7 @@ const addTask = (e) => {
   const ul = document.querySelector('body ul');
   const input = document.getElementById('add-input');
   let list = JSON.parse(localStorage.getItem('Tasks'));
-   
+
   if (e.keyCode === 13) {
     const item = {
       description: input.value,

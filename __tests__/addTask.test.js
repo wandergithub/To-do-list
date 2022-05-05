@@ -1,6 +1,5 @@
 import addTask from '../src/modules/addTask.js';
 import { removeTask } from '../src/modules/editingTask.js';
-import tasksList from "../src/modules/tasksList.js";
 
 const html = `
 <ul>
@@ -69,17 +68,3 @@ describe('Remove task test', () => {
     expect(result.length).toBe(0);
   });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
