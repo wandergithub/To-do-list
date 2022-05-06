@@ -1,6 +1,7 @@
 import modifyTask from "../src/modules/modifyTask"
 import addTask from "../src/modules/addTask"
 import taskStatus from "../src/modules/taskStatus"
+import {removeCompletedTasks} from "../src/modules/clearAll"
 
 const html = `
 <ul>
@@ -44,4 +45,35 @@ describe('the modify task function', () => {
 
     expect(list[0].completed).toBe(true);
   })
-})
+
+  test('It deletes all completed tasks', () => {
+    const ListOfTasks = [
+      {
+        completed: true
+      },
+      {
+        completed: true
+      },
+      {
+        completed: true
+      },
+      {
+        completed: false
+      },
+      {
+        completed: false
+      },
+      {
+        completed: false
+      },
+      {
+        completed: false
+      },
+    ];
+    localStorage.setItem('Tasks', JSON.stringify(ListOfTasks));
+    removeCompletedTasks();
+    const result = JSON.parse(localStorage.getItem('Tasks'));
+
+    expect(result.length).toBe(4);
+  });
+});

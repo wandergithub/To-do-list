@@ -1,6 +1,6 @@
 import { toNumber } from 'lodash';
 
-export default function modifyTask(newdescription, index /* completed = false */) {
+export default function modifyTask(newdescription, index) {
   index = index[index.length - 1];
   const list = JSON.parse(localStorage.getItem('Tasks'));
   list.forEach((element) => {
