@@ -2,7 +2,7 @@
 
 # To do list
 
-> This project is a simple to do list of tasks. Built using webpack.
+> This project is a simple to do list that allows the user follow up with their daily tasks with a minimalist design and complete functionality for adding, removing and check completed tasks.
 
 ## App screenshot
 
